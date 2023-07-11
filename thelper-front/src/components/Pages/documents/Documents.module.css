@@ -1,0 +1,7 @@
+.filesContent h1 {
+    text-align: center;
+}
+.filesList { 
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
