@@ -1,20 +1,39 @@
-import { ReactNode, MouseEvent} from 'react'
-import { Link } from 'react-router-dom';
+import { MouseEvent } from "react";
+import { Link } from "react-router-dom";
+import classNames from "classnames";
 
-interface Props {
-    item: {
-        title: string,
-        path: string,
-        icon: ReactNode,
-        cName: string
-    }
-    onClick: (e: MouseEvent) => void
+interface NavBarItemsProps {
+  item: {
+    title: string;
+    path: string;
+    icon: JSX.Element;
+  };
+  onClick: (e: MouseEvent) => void;
 }
 
-const NavBarItem = ({ item, onClick }: Props) => {
+const NavBarItem = ({ item, onClick }: NavBarItemsProps) => {
   return (
-    <Link to={item.path} className={item.cName} onClick={onClick}>{item.icon} <span>{item.title}</span></Link>
-  )
-}
+    <Link
+      to={item.path}
+      className={classNames(
+        "flex",
+        "w-full",
+        "py-10",
+        "text-3xl",
+        "text-left",
+        "items-center",
+        "hover:bg-slate-400",
+        "transition-all",
+        "ease-in"
+      )}
+      onClick={onClick}
+    >
+      <div className="flex whitespace-nowrap pl-2">
+        {item.icon}
+        <span className={classNames("pl-3")}>{item.title}</span>
+      </div>
+    </Link>
+  );
+};
 
 export default NavBarItem;

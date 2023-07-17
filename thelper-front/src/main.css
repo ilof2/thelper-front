@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --navbar-open-width: 210px;
+        --navbar-width: var(--navbar-closed-width);
+        --navbar-closed-width: 50px;
+    }
+}
+
+.navbar {
+    width: var(--navbar-width);
+}
+
+.content {
+    transition: all ease-in 0.3;
+    width: fit-content;
+    padding: 100px 100px 100px calc(100px + var(--navbar-width));
+}
